@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -8,12 +8,17 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
-import { Title } from "react-native-paper";
+import Modal from "react-native-modal";
 
+import { RadioButton, Title } from "react-native-paper";
 import { COLORS, Icons, SIZES } from "../../constants";
 import { windowWidth } from "../../utils/Dimentions";
 
+const modalheight = 300;
 function Home() {
+  const [CollegeModalVisible, setCollegeModalVisible] = useState(false);
+  const [value, setValue] = React.useState("first");
+
   const Category = ({ name, title, subtitle, onPress }) => {
     return (
       <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
@@ -41,6 +46,81 @@ function Home() {
           </View>
         </View>
       </TouchableOpacity>
+    );
+  };
+
+  const CategoryModal = () => {
+    return (
+      <Modal
+        isVisible={CollegeModalVisible}
+        style={styles.view}
+        animationIn="zoomInDown"
+        animationOut="zoomOutUp"
+        animationInTiming={600}
+        animationOutTiming={600}
+        backdropTransitionInTiming={600}
+        backdropTransitionOutTiming={600}
+        useNativeDriverForBackdrop
+        onBackdropPress={() => {
+          setCollegeModalVisible(false);
+        }}
+        onSwipeComplete={() => {
+          setCollegeModalVisible(false);
+        }}
+        swipeDirection={["down"]}
+      >
+        <View
+          style={{
+            // backgroundColor: 'yellow',
+            justifyContent: "flex-end",
+            flex: 1
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: COLORS.white,
+              width: "100%",
+              height: modalheight,
+              borderTopLeftRadius: 20,
+              borderTopRightRadius: 20,
+              padding: 10
+            }}
+          >
+            <View>
+              <RadioButton.Item
+                label="Distance (km)"
+                value="Distance"
+                status={value === "Distance" ? "checked" : "unchecked"}
+                onPress={() => setValue("first")}
+              />
+              <RadioButton.Item
+                label="Discount upto 10%"
+                value="10% Discount"
+                status={value === "10% Discount" ? "checked" : "unchecked"}
+                onPress={() => console.log("first")}
+              />
+              <RadioButton.Item
+                label="Discount upto 20%"
+                value="20% Discount"
+                status={value === "20% Discount" ? "checked" : "unchecked"}
+                onPress={() => console.log("first")}
+              />
+              <RadioButton.Item
+                label="Discount upto 40%"
+                value="40% Discount"
+                status={value === "40% Discount" ? "checked" : "unchecked"}
+                onPress={() => console.log("first")}
+              />
+              <RadioButton.Item
+                label="Discount upto 60%"
+                value="60% Discount"
+                status={value === "60% Discount" ? "checked" : "unchecked"}
+                onPress={() => console.log("first")}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
     );
   };
   return (
@@ -82,6 +162,7 @@ function Home() {
         </View>
       </View>
       {/*  */}
+      <CategoryModal />
       {/* Main screen  */}
       <ScrollView
         contentContainerStyle={{
@@ -89,7 +170,10 @@ function Home() {
         }}
       >
         <View style={{ alignItems: "center", marginTop: 20 }}>
-          <TouchableOpacity activeOpacity={0.5}>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => setCollegeModalVisible(true)}
+          >
             <View>
               <Icons.Colleges width={345} height={258} />
               <View
@@ -163,6 +247,9 @@ const styles = StyleSheet.create({
     padding: 5,
     paddingHorizontal: 20,
     paddingTop: 15
+  },
+  view: {
+    margin: 0
   }
 });
 
