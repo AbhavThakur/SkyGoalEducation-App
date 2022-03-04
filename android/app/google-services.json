@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "863565391876",
+    "project_id": "skygoaleducation18",
+    "storage_bucket": "skygoaleducation18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863565391876:android:df11a8fc8eb032b2682d51",
+        "android_client_info": {
+          "package_name": "com.skygoaleducation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863565391876-5g2l1tb7pcrj83o9phvuf8ndpd2grrmt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.skygoaleducation",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "863565391876-tljke6hul1grv0ndtr49b8qa1fucrc4f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.skygoaleducation",
+            "certificate_hash": "b231080c0745df922aaaba1fce5e6475588378f2"
+          }
+        },
+        {
+          "client_id": "863565391876-0fj9of0bh1vrqf6ebfshs3vk32b2t1as.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBJBt0VcU4w-PI_73v0cHXO0lA-zD4xoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863565391876-0fj9of0bh1vrqf6ebfshs3vk32b2t1as.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
