@@ -4,17 +4,16 @@ import {
   StyleSheet,
   Text,
   SafeAreaView,
-  TextInput,
   ScrollView,
   TouchableOpacity
 } from "react-native";
 import Modal from "react-native-modal";
 
-import { RadioButton, Title } from "react-native-paper";
+import { RadioButton, Title, Divider } from "react-native-paper";
+import TopHeader from "../../components/TopHeader";
 import { COLORS, Icons, SIZES } from "../../constants";
-import { windowWidth } from "../../utils/Dimentions";
 
-const modalheight = 300;
+const modalheight = 350;
 function Home() {
   const [CollegeModalVisible, setCollegeModalVisible] = useState(false);
   const [value, setValue] = React.useState("first");
@@ -54,24 +53,17 @@ function Home() {
       <Modal
         isVisible={CollegeModalVisible}
         style={styles.view}
-        animationIn="zoomInDown"
-        animationOut="zoomOutUp"
-        animationInTiming={600}
-        animationOutTiming={600}
-        backdropTransitionInTiming={600}
-        backdropTransitionOutTiming={600}
-        useNativeDriverForBackdrop
         onBackdropPress={() => {
           setCollegeModalVisible(false);
         }}
         onSwipeComplete={() => {
           setCollegeModalVisible(false);
         }}
+        useNativeDriverForBackdrop
         swipeDirection={["down"]}
       >
         <View
           style={{
-            // backgroundColor: 'yellow',
             justifyContent: "flex-end",
             flex: 1
           }}
@@ -86,36 +78,67 @@ function Home() {
               padding: 10
             }}
           >
+            <View
+              style={{
+                backgroundColor: COLORS.lightwhite,
+                width: 50,
+                height: 5,
+                borderRadius: 20,
+                alignSelf: "center"
+              }}
+            />
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                paddingHorizontal: 20
+              }}
+            >
+              <Title>Sort by</Title>
+              <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() => setCollegeModalVisible(false)}
+              >
+                <Icons.Cross width={18} height={18} />
+              </TouchableOpacity>
+            </View>
+            <Divider style={{ marginVertical: 10 }} />
             <View>
               <RadioButton.Item
-                label="Distance (km)"
-                value="Distance"
-                status={value === "Distance" ? "checked" : "unchecked"}
-                onPress={() => setValue("first")}
+                label="Bachelor of Technology"
+                value="BTech"
+                color={COLORS.button}
+                status={value === "BTech" ? "checked" : "unchecked"}
+                onPress={() => setValue("BTech")}
               />
               <RadioButton.Item
-                label="Discount upto 10%"
-                value="10% Discount"
-                status={value === "10% Discount" ? "checked" : "unchecked"}
-                onPress={() => console.log("first")}
+                label="Bachelor of Architecture"
+                value="Architecture"
+                color={COLORS.button}
+                status={value === "Architecture" ? "checked" : "unchecked"}
+                onPress={() => setValue("Architecture")}
               />
               <RadioButton.Item
-                label="Discount upto 20%"
-                value="20% Discount"
-                status={value === "20% Discount" ? "checked" : "unchecked"}
-                onPress={() => console.log("first")}
+                label="Pharmacy"
+                value="Pharmacy"
+                color={COLORS.button}
+                status={value === "Pharmacy" ? "checked" : "unchecked"}
+                onPress={() => setValue("Pharmacy")}
               />
               <RadioButton.Item
-                label="Discount upto 40%"
-                value="40% Discount"
-                status={value === "40% Discount" ? "checked" : "unchecked"}
-                onPress={() => console.log("first")}
+                label="Law"
+                value="Law"
+                color={COLORS.button}
+                status={value === "Law" ? "checked" : "unchecked"}
+                onPress={() => setValue("Law")}
               />
               <RadioButton.Item
-                label="Discount upto 60%"
-                value="60% Discount"
-                status={value === "60% Discount" ? "checked" : "unchecked"}
-                onPress={() => console.log("first")}
+                label="Management"
+                value="Management"
+                color={COLORS.button}
+                status={value === "Management" ? "checked" : "unchecked"}
+                onPress={() => setValue("Management")}
               />
             </View>
           </View>
@@ -126,50 +149,22 @@ function Home() {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header Container */}
-      <View style={styles.headerBg}>
-        <Title style={{ color: COLORS.white }}>Find your own way</Title>
-        <Text style={{ color: COLORS.white, marginBottom: 20 }}>
-          Search in 600 colleges around!
-        </Text>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            width: windowWidth * 0.9
-          }}
-        >
-          <View
-            style={{
-              flexDirection: "row",
-              backgroundColor: COLORS.white,
-              width: windowWidth * 0.7,
-              alignItems: "center",
-              borderRadius: 15,
-              justifyContent: "center"
-            }}
-          >
-            <Icons.SearchIcon width={20} length={20} />
-            <TextInput
-              placeholder="Search for colleges, schools..."
-              placeholderTextColor={COLORS.light}
-              style={{
-                color: COLORS.black,
-                width: windowWidth * 0.6
-              }}
-            />
-          </View>
-          <Icons.Mic width={55} height={53} />
-        </View>
-      </View>
+      <TopHeader
+        title="Find your own way"
+        subtitle="Search in 600 colleges around!"
+        Search
+      />
       {/*  */}
       <CategoryModal />
       {/* Main screen  */}
       <ScrollView
         contentContainerStyle={{
-          paddingBottom: 250
+          // paddingBottom: 250,
+          flex: 1
+          // backgroundColor: "yellow"
         }}
       >
-        <View style={{ alignItems: "center", marginTop: 20 }}>
+        <View style={{ alignItems: "center", marginTop: 30 }}>
           <TouchableOpacity
             activeOpacity={0.5}
             onPress={() => setCollegeModalVisible(true)}
@@ -202,17 +197,7 @@ function Home() {
             </View>
           </TouchableOpacity>
           {/* School and exam view container */}
-          <View
-            style={{
-              flexDirection: "row",
-              backgroundColor: "transparent",
-              width: 345,
-              justifyContent: "space-between",
-              position: "absolute",
-              top: 205,
-              height: 300
-            }}
-          >
+          <View style={styles.CategoryContainer}>
             {/* Schools */}
             <Category
               name={<Icons.School width={167} height={272} />}
@@ -238,18 +223,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff"
   },
-  headerBg: {
-    backgroundColor: COLORS.button,
-    width: "100%",
-    height: 180,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    padding: 5,
-    paddingHorizontal: 20,
-    paddingTop: 15
-  },
   view: {
     margin: 0
+  },
+  CategoryContainer: {
+    flexDirection: "row",
+    backgroundColor: "transparent",
+    width: 345,
+    justifyContent: "space-between",
+    position: "absolute",
+    top: 205,
+    height: 300
   }
 });
 

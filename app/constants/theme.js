@@ -3,7 +3,6 @@ export const COLORS = {
   secondary: "#5D2DFD",
   background: "#02030E",
   button: "#0E3C6E",
-  stock: "#051F32",
   Up: "#73C3B3",
   Down: "#FF3165",
   white: "#fff",
@@ -26,7 +25,7 @@ export const SIZES = {
 
   // font sizes
   h1: 30,
-  h2: 22,
+  h2: 20,
   h3: 18,
   h4: 16,
   body1: 30,

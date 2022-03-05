@@ -10,7 +10,7 @@ import {
 import LottieView from "lottie-react-native";
 import { Title, Subheading } from "react-native-paper";
 import { COLORS } from "../../constants";
-import FormButton from "../../components/FormButton";
+import { FormButton } from "../../components";
 // Data will be used to compose our slides
 const data = [
   {

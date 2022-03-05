@@ -127,12 +127,12 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   tabBar: {
-    height: 70
-    // position: "absolute",
-    // bottom: 5,
-    // right: 16,
-    // left: 16,
-    // borderRadius: 16
+    height: 70,
+    position: "absolute",
+    bottom: 5,
+    right: 16,
+    left: 16,
+    borderRadius: 16
   },
   btn: {
     width: 50,

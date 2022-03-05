@@ -9,6 +9,8 @@ import SearchIcon from "../assets/icons/search.svg";
 import Colleges from "../assets/icons/College.svg";
 import School from "../assets/icons/school.svg";
 import Exam from "../assets/icons/exams.svg";
+import Cross from "../assets/icons/cross.svg";
+import Back from "../assets/icons/backButton.svg";
 
 export default {
   home,
@@ -21,5 +23,7 @@ export default {
   SearchIcon,
   Colleges,
   School,
-  Exam
+  Exam,
+  Cross,
+  Back
 };
