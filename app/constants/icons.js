@@ -4,11 +4,11 @@ const discover = require("../assets/icons/Discovery.png");
 const profile = require("../assets/icons/user.png");
 const forget = require("../assets/icons/Forgot-page.png");
 const signUp = require("../assets/icons/signup.png");
+const CollegeIcon = require("../assets/icons/College.png");
+const SchoolIcon = require("../assets/icons/School.png");
+const ExamIcon = require("../assets/icons/Exam.png");
 import Mic from "../assets/icons/mic.svg";
 import SearchIcon from "../assets/icons/search.svg";
-import Colleges from "../assets/icons/College.svg";
-import School from "../assets/icons/school.svg";
-import Exam from "../assets/icons/exams.svg";
 import Cross from "../assets/icons/cross.svg";
 import Back from "../assets/icons/backButton.svg";
 
@@ -21,9 +21,10 @@ export default {
   signUp,
   Mic,
   SearchIcon,
-  Colleges,
-  School,
-  Exam,
+
   Cross,
-  Back
+  Back,
+  CollegeIcon,
+  SchoolIcon,
+  ExamIcon
 };

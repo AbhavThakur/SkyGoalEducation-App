@@ -5,7 +5,8 @@ import {
   Text,
   SafeAreaView,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 import Modal from "react-native-modal";
 
@@ -159,18 +160,21 @@ function Home() {
       {/* Main screen  */}
       <ScrollView
         contentContainerStyle={{
-          // paddingBottom: 250,
-          flex: 1
+          paddingBottom: 320,
+          padding: 5
           // backgroundColor: "yellow"
         }}
       >
-        <View style={{ alignItems: "center", marginTop: 30 }}>
+        <View style={{ alignItems: "center", marginTop: 20 }}>
           <TouchableOpacity
             activeOpacity={0.5}
             onPress={() => setCollegeModalVisible(true)}
           >
             <View>
-              <Icons.Colleges width={345} height={258} />
+              <Image
+                source={Icons.CollegeIcon}
+                style={{ width: 355, height: 258 }}
+              />
               <View
                 style={{
                   position: "absolute",
@@ -200,13 +204,23 @@ function Home() {
           <View style={styles.CategoryContainer}>
             {/* Schools */}
             <Category
-              name={<Icons.School width={167} height={272} />}
+              name={
+                <Image
+                  source={Icons.SchoolIcon}
+                  style={{ width: 167, height: 272 }}
+                />
+              }
               title="Top Schools"
               subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing"
             />
             {/* Exam */}
             <Category
-              name={<Icons.Exam width={167} height={272} />}
+              name={
+                <Image
+                  source={Icons.ExamIcon}
+                  style={{ width: 167, height: 272 }}
+                />
+              }
               title="Top Exams"
               subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             />
@@ -229,10 +243,10 @@ const styles = StyleSheet.create({
   CategoryContainer: {
     flexDirection: "row",
     backgroundColor: "transparent",
-    width: 345,
+    width: 355,
     justifyContent: "space-between",
     position: "absolute",
-    top: 205,
+    top: 215,
     height: 300
   }
 });
